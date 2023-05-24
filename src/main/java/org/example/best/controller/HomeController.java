@@ -62,29 +62,16 @@ public class HomeController {
 	    
 	    @GetMapping("/movies/{id}")
 	    public String movieDetails(@PathVariable("id") long id, Model model) {
-	        String title = null;
-	        if (id == 1) {
-	            title = "Movie 1";
-	        } else if (id == 2) {
-	            title = "Movie 2";
-	        } else if (id == 3) {
-	            title = "Movie 3";
-	        }
-	        model.addAttribute("titlesMovies", title);
+	    	Movie m1 = getBestMovies().get((int) id);
+	        model.addAttribute("titlesMovies", m1);
 	        return "movies";
 	    }
 
 	    @GetMapping("/songs/{id}")
 	    public String songDetails(@PathVariable("id") long id, Model model) {
-	        String title = null;
-	        if (id == 1) {
-	            title = "Song 1";
-	        } else if (id == 2) {
-	            title = "Song 2";
-	        } else if (id == 3) {
-	            title = "Song 3";
-	        }
-	        model.addAttribute("titlesSongs", title);
+	    	
+	    	Song s1 = getBestSongs().get((int) id);
+	        model.addAttribute("titlesSongs", s1);
 	        return "songs";
 	    }
 
