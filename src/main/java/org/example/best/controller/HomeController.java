@@ -62,26 +62,30 @@ public class HomeController {
 	    
 	    @GetMapping("/movies/{id}")
 	    public String movieDetails(@PathVariable("id") long id, Model model) {
-	        List<Movie> movies = getBestMovies();
-	        for (Movie movie : movies) {
-	            if (movie.getId() == id) {
-	                model.addAttribute("titlesMovies", movie.getTitle());
-	                break;
-	            }
+	        String title = null;
+	        if (id == 1) {
+	            title = "Movie 1";
+	        } else if (id == 2) {
+	            title = "Movie 2";
+	        } else if (id == 3) {
+	            title = "Movie 3";
 	        }
-	        return "movie-details";
+	        model.addAttribute("titlesMovies", title);
+	        return "movies";
 	    }
 
 	    @GetMapping("/songs/{id}")
 	    public String songDetails(@PathVariable("id") long id, Model model) {
-	        List<Song> songs = getBestSongs();
-	        for (Song song : songs) {
-	            if (song.getId() == id) {
-	                model.addAttribute("titlesSongs", song.getTitle());
-	                break;
-	            }
+	        String title = null;
+	        if (id == 1) {
+	            title = "Song 1";
+	        } else if (id == 2) {
+	            title = "Song 2";
+	        } else if (id == 3) {
+	            title = "Song 3";
 	        }
-	        return "song-details";
+	        model.addAttribute("titlesSongs", title);
+	        return "songs";
 	    }
 
 }
