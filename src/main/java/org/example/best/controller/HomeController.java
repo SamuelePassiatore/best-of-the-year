@@ -64,7 +64,7 @@ public class HomeController {
 				model.addAttribute("titlesMovies", m1);
 			else
 				model.addAttribute("titlesMovies", "No found movie");
-			
+		model.addAttribute("name", "Samuele Passiatore");	
 		return "movie-details";
 	}
 
@@ -78,7 +78,7 @@ public class HomeController {
 				model.addAttribute("titlesSongs", s1);
 			else
 				model.addAttribute("titlesSongs", "No found song");
-			
+		model.addAttribute("name", "Samuele Passiatore");	
 		return "song-details";
 	}
 
