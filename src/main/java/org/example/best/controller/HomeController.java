@@ -2,6 +2,7 @@ package org.example.best.controller;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.example.best.classes.Movie;
 import org.example.best.classes.Song;
@@ -40,23 +41,29 @@ public class HomeController {
 
 	    @GetMapping("/movies")
 	    public String movies(Model model) {
-	        List<Movie> movies = getBestMovies();
-	        List<String> movieTitles = new ArrayList<>();
-	        for (Movie movie : movies) {
-	            movieTitles.add(movie.getTitle());
+	        String mts = "";
+	        Iterator<Movie> it = getBestMovies().iterator();
+	        while(it.hasNext()) {
+	        	mts += it.next().getTitle();
+	        	
+	        	if(it.hasNext())
+	        		mts += ", ";
 	        }
-	        model.addAttribute("titlesMovies", String.join(", ", movieTitles));
+	        model.addAttribute("titlesMovies", mts);
 	        return "movies";
 	    }
 	    
 	    @GetMapping("/songs")
 	    public String songs(Model model) {
-	        List<Song> songs = getBestSongs();
-	        List<String> songTitles = new ArrayList<>();
-	        for (Song song : songs) {
-	            songTitles.add(song.getTitle());
+	        String sts = "";
+	        Iterator<Song> it = getBestSongs().iterator();
+	        while(it.hasNext()) {
+	        	sts += it.next().getTitle();
+	        	
+	        	if(it.hasNext())
+	        		sts += ", ";
 	        }
-	        model.addAttribute("titlesSongs", String.join(", ", songTitles));
+	        model.addAttribute("titlesSongs", sts);
 	        return "songs";
 	    }
 	    
