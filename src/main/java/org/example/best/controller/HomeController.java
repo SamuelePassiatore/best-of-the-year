@@ -40,30 +40,18 @@ public class HomeController {
 
 	@GetMapping("/movies")
 	public String movies(Model model) {
-		String mts = "";
-		Iterator<Movie> it = getBestMovies().iterator();
-		while (it.hasNext()) {
-			mts += it.next().getTitle();
-
-			if (it.hasNext())
-				mts += ", ";
-		}
-		model.addAttribute("titlesMovies", mts);
-		return "movies";
+	    List<Movie> movies = getBestMovies();
+	    model.addAttribute("movies", movies);
+	    model.addAttribute("name", "Samuele Passiatore");
+	    return "movies";
 	}
 
 	@GetMapping("/songs")
 	public String songs(Model model) {
-		String sts = "";
-		Iterator<Song> it = getBestSongs().iterator();
-		while (it.hasNext()) {
-			sts += it.next().getTitle();
-
-			if (it.hasNext())
-				sts += ", ";
-		}
-		model.addAttribute("titlesSongs", sts);
-		return "songs";
+	    List<Song> songs = getBestSongs();
+	    model.addAttribute("songs", songs);
+	    model.addAttribute("name", "Samuele Passiatore");
+	    return "songs";
 	}
 
 	@GetMapping("/movies/{id}")
@@ -73,11 +61,11 @@ public class HomeController {
 			if (m.getId() == id)
 				m1 = m;
 			if (m1 != null)
-				model.addAttribute("titlesMovies", m1.getTitle());
+				model.addAttribute("titlesMovies", m1);
 			else
 				model.addAttribute("titlesMovies", "No found movie");
 			
-		return "movies";
+		return "movie-details";
 	}
 
 	@GetMapping("/songs/{id}")
@@ -87,11 +75,11 @@ public class HomeController {
 			if (s.getId() == id)
 				s1 = s;
 			if (s1 != null)
-				model.addAttribute("titlesSongs", s1.getTitle());
+				model.addAttribute("titlesSongs", s1);
 			else
 				model.addAttribute("titlesSongs", "No found song");
 			
-		return "songs";
+		return "song-details";
 	}
 
 }

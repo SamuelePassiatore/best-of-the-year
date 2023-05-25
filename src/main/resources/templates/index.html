@@ -2,12 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="ISO-8859-1">
+		
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+		<link rel="stylesheet" th:href="@{/css/style.css}">
 		<title>Best of the year</title>
 	</head>
-	<body>
+	<body class="p-3">
 		<h1>Best of the year by <span th:text="${name}"></span></h1>
 		
 		<a href="http://localhost:8080/movies">Movies List</a>
 		<a href="http://localhost:8080/songs">Songs List</a>
+		
+		<header th:insert="frag/layout.html :: layout(${name})"></header>
+		<main><div class="text-center">Lorem Ipsum</div></main>
 	</body>
 </html>

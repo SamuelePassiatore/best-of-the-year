@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Song Details</title>
+</head>
+<body class="text-center">
+	<header th:insert="frag/layout.html :: layout(${name})"></header>
+    <h1>Song Details</h1>
+	<p>[[${titlesSongs.title}]]</p>
+</body>
+</html>
+
