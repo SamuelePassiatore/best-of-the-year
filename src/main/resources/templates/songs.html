@@ -10,7 +10,7 @@
 	</head>
 	<body class="text-center p-3">
 	    <header th:insert="frag/layout.html :: layout(${name})"></header>
-		<ul class="list-group">
+		<ul class="list-group w-50 mx-auto">
 			<li class="list-group-item" th:each="song : ${songs}">
 				 <a th:href="@{'songs/' + ${song.id}}">[[${song.title}]]</a>
 			</li>
