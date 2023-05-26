@@ -2,8 +2,6 @@ package org.example.best.controller;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import org.example.best.classes.Movie;
 import org.example.best.classes.Song;
 import org.springframework.stereotype.Controller;
