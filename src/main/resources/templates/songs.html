@@ -8,10 +8,10 @@
 		<link rel="stylesheet" th:href="@{/css/style.css}">
 		<title>Best Songs</title>
 	</head>
-	<body class="text-center">
+	<body class="text-center p-3">
 	    <header th:insert="frag/layout.html :: layout(${name})"></header>
-		<ul>
-			<li th:each="song : ${songs}">
+		<ul class="list-group">
+			<li class="list-group-item" th:each="song : ${songs}">
 				 <a th:href="@{'songs/' + ${song.id}}">[[${song.title}]]</a>
 			</li>
 		</ul>

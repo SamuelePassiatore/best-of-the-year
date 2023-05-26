@@ -8,10 +8,10 @@
 		<link rel="stylesheet" th:href="@{/css/style.css}">
 		<title>Best Movies</title>
 	</head>
-	<body>
+	<body class="p-3">
 		<header th:insert="frag/layout.html :: layout(${name})"></header>
-		<ul class="text-center">
-	        <li th:each="movie : ${movies}">
+		<ul class="text-center list-group">
+	        <li class="list-group-item" th:each="movie : ${movies}">
 	        	<a th:href="@{'movies/' + ${movie.id}}">[[${movie.title}]]</a>
 	        </li>
 	    </ul>
